@@ -120,7 +120,7 @@ function render(view) {
     "section",
     { class: "panel hero" },
     h("div", { class: "name" }, student.name),
-    h("div", { class: "total" }, `★ ${stars} `, h("small", {}, stars === 1 ? "star" : "stars")),
+    h("div", { class: "total" }, String(stars), h("small", {}, stars === 1 ? "star" : "stars")),
     h(
       "p",
       { class: "muted" },

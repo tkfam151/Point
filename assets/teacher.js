@@ -26,7 +26,7 @@ function showLogin() {
   app.replaceChildren(
     h(
       "section",
-      { class: "panel", style: "max-width:380px;margin:40px auto" },
+      { class: "panel" },
       h("h2", {}, "Teacher login"),
       h(
         "form",
@@ -40,7 +40,7 @@ function showLogin() {
         },
         h("label", { for: "pw" }, "Password"),
         input,
-        h("div", { style: "margin-top:12px" }, btn)
+        h("div", { class: "row", style: "margin-top:16px" }, btn)
       )
     )
   );
@@ -161,7 +161,7 @@ function buildDashboard() {
       },
       h("label", { for: "names" }, "Add students"),
       namesInput,
-      h("div", { style: "margin:10px 0 16px" }, h("button", { type: "submit" }, "Add students"))
+      h("div", { class: "add-actions" }, h("button", { type: "submit" }, "Add students"))
     ),
     filterInput,
     h("ul", { class: "list", id: "students" })
@@ -195,7 +195,7 @@ function buildDashboard() {
       h("div", { class: "narrow" }, h("label", { for: "reward-cost" }, "Stars needed"), rewardCost),
       h("button", { type: "submit" }, "Add")
     ),
-    h("ul", { class: "list", id: "rewards", style: "margin-top:8px" })
+    h("ul", { class: "list", id: "rewards" })
   );
 
   // Activity
@@ -206,9 +206,14 @@ function buildDashboard() {
     h("ul", { class: "list", id: "activity" })
   );
 
+  // Two columns on iPad and Mac; on iPhone they stack in this order.
   app.replaceChildren(
-    h("div", { class: "grid" }, codePanel, pendingPanel),
-    h("div", { class: "grid" }, studentsPanel, h("div", {}, rewardsPanel, activityPanel))
+    h(
+      "div",
+      { class: "grid" },
+      h("div", { class: "col" }, codePanel, pendingPanel, rewardsPanel),
+      h("div", { class: "col" }, studentsPanel, activityPanel)
+    )
   );
   renderAll();
 }

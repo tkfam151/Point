@@ -90,7 +90,7 @@ function stampCard(filled, { small = false } = {}) {
     "aria-label": `Stamp card with ${filled} of 10 stamps`,
   });
   for (let i = 0; i < 10; i++) {
-    card.append(h("span", { class: `stamp${i < filled ? " on" : ""}` }, i < filled ? "★" : ""));
+    card.append(h("span", { class: `stamp${i < filled ? " on" : ""}` }));
   }
   return card;
 }
