@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Star Points · Teacher</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <div class="wrap wide">
+    <header class="top">
+      <h1><span>★</span> Star Points · Teacher</h1>
+      <button id="logout" class="ghost small" hidden>Log out</button>
+    </header>
+    <main id="app"></main>
+  </div>
+
+  <dialog id="edit-dialog">
+    <form id="edit-form" method="dialog">
+      <h2>Edit student</h2>
+      <div class="field">
+        <label for="edit-name">Name</label>
+        <input id="edit-name" required maxlength="80">
+      </div>
+      <div class="field">
+        <label for="edit-stars">Stars</label>
+        <input id="edit-stars" type="number" min="0" required>
+      </div>
+      <div class="row">
+        <button type="submit">Save</button>
+        <button type="button" class="ghost" id="edit-cancel">Cancel</button>
+        <button type="button" class="danger" id="edit-delete">Delete student</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../config.js"></script>
+  <script src="../assets/api.js"></script>
+  <script src="../assets/teacher.js"></script>
+</body>
+</html>
